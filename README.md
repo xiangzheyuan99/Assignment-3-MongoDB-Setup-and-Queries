@@ -4,7 +4,7 @@
 Find all movies with runtime greater than 200 minutes in year 1983.
 Sort results by runtime in ascending order. Only include runtime, title, and year.
 
-Filter documents where year equals 1983. Apply the $gt operator on runtime to select movies longer than 200 minutes.  Use projection to include only runtime, title, and year, and exclude _id.  
+Filter documents where year equals 1983. Apply the $gt operator on runtime to select movies longer than 200 minutes.  Use projection to include only runtime, title, and year.  
 Sort the results in ascending order by runtime.
 
 
@@ -19,7 +19,7 @@ db.movies.find(
 # Query 2
 Find all movies after year 2014 with IMDb rating greater than 9.
 
-Filter documents where year is greater than 2014 using the $gt operator. Access the nested IMDb rating field using dot notation ("imdb.rating") and filter values greater than 9. Use projection to include only title, year, and imdb rating, and exclude _id.
+Filter documents where year is greater than 2014 using the $gt operator. Access the nested IMDb rating field using dot notation ("imdb.rating") and filter values greater than 9. Use projection to include only title, year, and imdb rating.
 
 db.movies.find(
   { year: { $gt: 2014 }, "imdb.rating": { $gt: 9 } },
