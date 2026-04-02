@@ -19,11 +19,11 @@ db.movies.find(
 # Query 2
 Find all movies after year 2014 with IMDb rating greater than 9.
 
-Filter documents where year is greater than 2014 using the $gt operator. Access the nested IMDb rating field using dot notation ("imdb.rating") and filter values greater than 9. Use projection to include only title, year, and imdb rating.
+Filter documents where year is greater than 2014 using the $gt operator. Access the nested IMDb rating field using dot notation ("imdb.rating") and filter values greater than 9. Use projection to include only title, year, and imdb rating, and exclude the "_id" field. Sort the results by "imdb.rating" in descending order.
 
 db.movies.find(
   { year: { $gt: 2014 }, "imdb.rating": { $gt: 9 } },
-  { title: 1, year: 1, "imdb.rating": 1}
-)
+  { _id: 0, title: 1, year: 1, "imdb.rating": 1 }
+).sort({ "imdb.rating": -1 })
 
-<img width="434" height="356" alt="2" src="https://github.com/user-attachments/assets/cbbea032-2fb2-439d-8443-5b410a027601" />
+<img width="555" height="327" alt="Query 2" src="https://github.com/user-attachments/assets/9350a39d-084b-48c1-8281-98f591e86ef4" />
